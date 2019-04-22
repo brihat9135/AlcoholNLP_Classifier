@@ -1,4 +1,4 @@
-This classifier is created by Loyola Medical Center
+
 
 @author Brihat Sharma
 
