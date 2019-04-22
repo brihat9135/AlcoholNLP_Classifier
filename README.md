@@ -4,7 +4,7 @@ This classifier is created by Loyola Medical Center
 
 Introduction
 
-Alcohol classifer model detects patient with alcohol consumsion. Anc notes are needed as an input, which should be first processed using Apache cTAKES. 
+Alcohol classifer model to identify alcohol misuse. Anc notes are needed as an input, which should be first processed using Apache cTAKES. 
 
 Dependencies Library: Pandas, os, pickle
 
