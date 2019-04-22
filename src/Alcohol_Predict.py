@@ -31,7 +31,7 @@ class ProcessData:
         for file in os.listdir(directory):
             try:
                 if file.endswith(".txt"):
-                    txtfilesList.append(directory + "/" + str(file))
+                    txtfilesList.append(directory + str(file))
                     patientL.append(str(file))
                     count = count + 1
                 else:
@@ -48,6 +48,7 @@ class ProcessData:
     #method to open file
     #return opened file with filename
     def openData(self, text_df):
+        print(text_df)
         text_df['FileList'] = text_df.FileList.apply(lambda x: open(x, "r").read())
         text_df['FileList'] = text_df.FileList.apply(lambda x: ", ".join(x.split( )))
         return text_df
@@ -65,12 +66,11 @@ class ProcessData:
         
         X_test = vectorizer.transform(text_df.FileList)
         prediction = logist.predict(X_test)
+        predictprobability = logist.predict_proba(X_test)[:, 1]
 
         documents = text_df.Filename.tolist()
-        data_df = pd.DataFrame({'Filename': documents, 'Predictions': prediction})
+        data_df = pd.DataFrame({'Filename': documents, 'Predictions': prediction, 'Prediction_Probability': predictprobability})
         data_df.to_csv(outputDir + 'AlcoholResult.csv', sep = '|', index = False)
-    
-        print(data_df)
         return data_df
 
 
@@ -79,19 +79,21 @@ if __name__ == "__main__":
     PD = ProcessData()
 
     """
-    Change the inputDir and outputDir. InputDir is where your input files exist, they should be    text file such as .txt.
+    Change the inputDir and outputDir below. InputDir is where your input files exist, they should be text file such as .txt.
     A file named AlcoholResult will be created which will have filename and prediction result
     sep by |. 
     """
 
-    inputDir = "/Archive/alcohol/data/anc_notes_test_cuis/yes"
-    outputDir = "~/Alcohol/code/Output/"
+    inputDir = "/home/NLPShare/Opioid/Opioid_Annotated_Encounters/Data_CUIS/"
+    outputDir = "/home/bsharma1/Alcohol/model/Output/"
+
     vectorizer = "Alcohol_Vectorizer.pkl"
     model = "Alcohol_logisticR_classifer.pkl"
-    outputDir = "~/Alcohol/code/Output/"
+
     txtfilesTrain_df = PD.dffiles(inputDir)
     text_df = PD.openData(txtfilesTrain_df)
     data_df = PD.predict(vectorizer, model, text_df, outputDir)
+    print("----------COMPLETED-----------")
 
 
         
