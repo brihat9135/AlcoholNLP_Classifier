@@ -4,7 +4,7 @@
 
 Introduction
 
-Alcohol classifer model to identify alcohol misuse. Anc notes are needed as an input, which should be first processed using Apache cTAKES. 
+Alcohol classifer model to identify alcohol misuse from the Electronic Health Record of Emergency Department and Hospitalized Patients. The first 24hr of clinical notes are needed as an input, which should be first processed using Apache cTAKES to concempt map the raw  with UMLS into Concept Unique Identifiers (CUIs). 
 
 Original research article describing development and internal validation: https://www.ncbi.nlm.nih.gov/pubmed/30602031
 
