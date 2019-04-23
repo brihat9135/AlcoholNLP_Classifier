@@ -6,6 +6,8 @@ Introduction
 
 Alcohol classifer model to identify alcohol misuse. Anc notes are needed as an input, which should be first processed using Apache cTAKES. 
 
+Original research article describing development and internal validation: https://www.ncbi.nlm.nih.gov/pubmed/30602031
+
 Dependencies Library: Pandas, os, pickle
 
 Steps:
@@ -22,4 +24,4 @@ Model:
 
 1) Open the Alcohol_Predict.py script and change the input and output directory
 2) Run the sript as python3 Alcohol_predict.py
-3) The result will be inside the output directory inside a csv file, first column represents the files, second column represents predicted labels and the third column represents predict probability. 1 as detected and 0 as undetected for the second column.  
+3) The result will be inside the output directory inside a csv file, first column represents the files, second column represents predicted labels and the third column represents predict probability. 1 as current alcohol misuse and 0 as no alcohol misuse for the second column.  
