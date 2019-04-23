@@ -15,7 +15,7 @@ Steps:
 cTAKES:
 
 1) Download cTAKES from https://ctakes.apache.org/downloads.cgi
-2) cTAKES comes with default dictionary, this dictionary can also be cutomized creating own version. Our dictionary consists of rxnorms and snomedCT but default dictionary work well
+2) cTAKES comes with default dictionary, this dictionary can also be cutomized creating own version. Our dictionary consists of rxnorms and snomedCT but default dictionary also works well
 3) Process the input data using cTAKES, this will crete .txt files with CUIs which will be input data to the model
 
 
